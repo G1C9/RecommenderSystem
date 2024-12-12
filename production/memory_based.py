@@ -1,6 +1,5 @@
 from sklearn.metrics.pairwise import pairwise_distances
 import numpy as np
-from .rmse import rmse
 
 from .work_with_data import train_data_matrix, test_data_matrix, n_users, n_items
 
@@ -26,6 +25,3 @@ user_prediction = predict(train_data_matrix, user_similarity, type='user')
 user_prediction = user_prediction + 4
 # Ограничиваем значения в диапазоне [0, 5]
 user_prediction = np.clip(user_prediction, 0, 5)
-
-print('User-based CF RMSE: ' + str(rmse(user_prediction, test_data_matrix)))
-print('Item-based CF RMSE: ' + str(rmse(item_prediction, test_data_matrix)))
